@@ -1,0 +1,13 @@
+<%- include('../layout/Header') %>
+<%- include('../layout/Navbar') %>
+<div class="container">
+  <div class="card" style="width: 18rem;">
+    <img src="/<%= plant.image %>" class="card-img-top" alt="<%= plant.name %>">
+    <div class="card-body">
+      <h5 class="card-title"><%= plant.name %></h5>
+      <p class="card-text"><%= plant.description %></p>
+      <p class="card-text"><strong>Price:</strong> $<%= plant.price.toFixed(2) %></p>
+    </div>
+  </div>
+</div>
+<%- include('../layout/Footer') %>

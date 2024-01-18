@@ -1,0 +1,10 @@
+<%- include('../../layout/Header') %>
+<%- include('../../layout/Navbar') %>
+<div class="container">
+  <% if(plants.length) { %>
+    <%- include('Plants', {plants}) %>
+  <% } else { %>
+    <%- include('NoProducts') %>
+  <% } %>
+</div>
+<%- include('../../layout/footer') %>

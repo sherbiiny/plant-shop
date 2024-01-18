@@ -1,0 +1,69 @@
+.plant {
+  border: none;
+  box-shadow: #55555508 8px 5px 9px 0px;
+}
+
+.img-container {
+  position: relative;
+}
+
+.plant .img {
+  max-height: 350px;
+  object-fit: cover;
+  color: #555;
+}
+
+.plant .add-to-cart {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #fff;
+  text-decoration: none;
+}
+
+.plant .add-to-cart i {
+  font-size: 24px;
+  color: grey;
+  margin: 10px;
+  transition: color 0.3s ease-in-out;
+}
+
+.plant .add-to-cart:hover i {
+  color: #555;
+}
+
+.plant .desc {
+  color: #888;
+}
+
+.plant .price {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.plant .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.plant:hover .overlay {
+  opacity: 1;
+}
+
+.plant .card-body {
+  position: relative;
+  z-index: 111111;
+}

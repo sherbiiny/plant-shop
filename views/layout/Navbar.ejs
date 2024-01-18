@@ -1,0 +1,52 @@
+<nav
+  class="navbar bg-dark navbar-expand-lg border-bottom border-body mb-5"
+  data-bs-theme="dark"
+>
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      Plant Shop
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapses d-flex justify-content-between w-100" id="navbarSupportedContent">
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/cart">Cart</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/order">Order</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search" action="/" method="GET">
+        <input
+          class="form-control me-2"
+          type="search"
+          name="search"
+          placeholder="Search plant..."
+          autocomplete="off"
+        />
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+      <% if (session.user) { %>
+        <div class="d-flex">
+          <h4 class="text-white me-3"><%= session.user.username %></h4>
+          <a href="/logout" class="btn btn-outline-success me-2">Logout</a>
+        </div>
+      <% } else { %>
+      <%- include('../components/LoginOrRegisterBtn') %>
+      <% } %>
+    </div>
+  </div>
+</nav>
