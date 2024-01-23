@@ -16,14 +16,14 @@ router.get("/register", ctrl.renderRegister);
  * @method POST
  * @body username, password
  */
-router.post("/login", validator.login, ctrl.login);
+router.post("/login", ...validator.login, ctrl.login);
 
 /**
  * @desc Register
  * @method POST
  * @body username, password
  */
-router.post("/register", validator.register, ctrl.register);
+router.post("/register", ...validator.register, ctrl.register);
 
 /**
  * @desc Logout
