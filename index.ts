@@ -10,6 +10,7 @@ import sessionConnection from "./config/session";
 import homeRouter from "./routes/home.routes";
 import plantRouter from "./routes/plant.routes";
 import authRouter from "./routes/auth.routes";
+import cartRouter from "./routes/cart.routes";
 import { ErrorHandler, notFoundHandler } from "./middlewares";
 
 // Initialize express app
@@ -44,6 +45,7 @@ app.set("views", "views");
 app.use("/", authRouter);
 app.use("/", homeRouter);
 app.use("/plants", plantRouter);
+app.use("/cart", cartRouter);
 
 // 404 Handler
 app.use(notFoundHandler);
@@ -56,4 +58,6 @@ app.use(ErrorHandler);
 
 // Listen
 let port = process.env.PORT || 3000;
-app.listen(port, () => console.log("Listening on: http://localhost:" + port));
+app.listen(port, () =>
+  console.log("\x1b[36m%s\x1b[0m", "Listening on: http://localhost:" + port)
+);
