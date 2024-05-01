@@ -12,5 +12,5 @@ export const ErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
   // handle unauthorized
   if (err.statusCode === 401) return res.redirect("/login");
 
-  res.redirect("back");
+  res.redirect('back');
 };

@@ -7,6 +7,15 @@
   position: relative;
 }
 
+.plant-photo {
+  height: 500px;
+}
+
+.plant-photo .img {
+  max-height: 100%;
+  object-fit: cover;
+}
+
 .plant .img {
   max-height: 350px;
   object-fit: cover;
@@ -66,4 +75,8 @@
 .plant .card-body {
   position: relative;
   z-index: 111111;
+}
+
+.flash {
+  transition: .3s;
 }

@@ -1,13 +1,22 @@
 <%- include('../layout/Header') %>
 <%- include('../layout/Navbar') %>
+
 <div class="container">
-  <div class="card" style="width: 18rem;">
-    <img src="/<%= plant.image %>" class="card-img-top" alt="<%= plant.name %>">
-    <div class="card-body">
-      <h5 class="card-title"><%= plant.name %></h5>
-      <p class="card-text"><%= plant.description %></p>
-      <p class="card-text"><strong>Price:</strong> $<%= plant.price.toFixed(2) %></p>
-    </div>
+  <div class="row">
+    <div class="col-6 d-grid">
+      <div>
+        <h1 class="fs-10"><%= plant.name %></h1>
+        <p class="text-black-50 fs-5">Description: this plant belongs to <%= plant.description %> category</p>
+        <p class="fs-5">Price: $<%= plant.price.toFixed(2) %></p>
+      </div>
+      <form method="post" action="/cart/add">
+        <input type="hidden" name="id" value="<%= plant._id %>">
+        <button type="submit" class="btn btn-success fs-5 w-100">Add to Cart</button>
+      </form>
+  </div>
+  <div class="col-6 plant-photo d-flex justify-content-end">
+    <img src="/<%= plant.image %>" class="img"/>
+  </div>
   </div>
 </div>
 <%- include('../layout/Footer') %>

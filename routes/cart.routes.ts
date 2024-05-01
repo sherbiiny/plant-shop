@@ -4,11 +4,14 @@ import ctrl from "../controllers/cart.controller";
 
 const router = Router();
 
+// All cart actions are auth protected
+router.use(routeProtector);
+
 /**
  * @desc render cart screen
  * @method GET
- * @protected auth protected
  */
-router.get("/", routeProtector, ctrl.renderCart);
+router.get("/", ctrl.renderCart);
+router.post("/add", ctrl.addToCart);
 
 export default router;

@@ -11,6 +11,8 @@ const Plant = mongoose.model("plant", schema);
 
 export const get = async (search: string) => {
   let rgx = RegExp(search, "i");
+
+  // Search by name or description
   let find = {
     $or: [{ name: rgx }, { description: rgx }],
   };

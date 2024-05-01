@@ -1,6 +1,14 @@
 import mongoose, { InferSchemaType, Types } from "mongoose";
 import { compare, hash } from "bcrypt";
 
+const OrderItem = {
+  plantId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Plant'
+  },
+  quantity: Number
+}
+
 const schema = new mongoose.Schema({
   username: {
     type: String,
@@ -10,12 +18,12 @@ const schema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  cart: [OrderItem]
 });
 
 type UserType = InferSchemaType<typeof schema> & { _id: Types.ObjectId };
 const User = mongoose.model("User", schema);
 
-// TODO: Implement this
 const validatePassword = (password: string, user: UserType) => {
   return compare(password, user.password);
 };
@@ -36,4 +44,16 @@ const getById = (id: Types.ObjectId) => {
   return User.findById(id);
 };
 
-export { create, getById, getByUsername, validatePassword, UserType };
+const updateCart = async (userId: Types.ObjectId, plantId: Types.ObjectId) => {
+  let user = await User.findById(userId);
+  let itemPosition = user.cart.findIndex((orderItem) => orderItem.plantId == plantId);
+  
+  if(~itemPosition)
+    user.cart[itemPosition].quantity++;
+  else
+    user.cart.push({plantId, quantity: 1});
+  
+    return user.save();
+}
+
+export { create, getById, getByUsername, validatePassword, UserType, updateCart };

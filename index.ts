@@ -53,11 +53,8 @@ app.use(notFoundHandler);
 // Error Handler
 app.use(ErrorHandler);
 
-// playground
-// import "./playground";
-
 // Listen
 let port = process.env.PORT || 3000;
 app.listen(port, () =>
-  console.log("\x1b[36m%s\x1b[0m", "Listening on: http://localhost:" + port)
+  console.log("Listening on: http://localhost:" + port)
 );
